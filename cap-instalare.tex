@@ -1,0 +1,77 @@
+%% LyX 2.0.6 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[11pt,romanian]{book}
+\usepackage[utf8x]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\newcommand{\noun}[1]{\textsc{#1}}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\section*{Cerinţe }
+
+Pentru a instala MOODLE este nevoie: 
+\begin{enumerate}
+\item Un Web-server (în majoritatea cazurilor Apache deşi poate fi utilizat
+şi IIS de la Micrsoft) 
+\item Interpretatorul PHP ( versiunea nu mai jos de 4.1.0). MOODLE de la
+versiunea 1.4 menţine versiunea 5
+\item Un server de baze de date MySQL sau PostgreSQL.
+\end{enumerate}
+Companiile de hosting de regulă implicit satisfac aceste condiţii.
+În caz contrar aflaţi modalitatea de a primi aceste ori schimbaţi
+compania care oferă hosting. 
+
+
+\section*{Descărcarea, copierea şi amplasarea fişierelor }
+
+Există două posibilităţi de descărcare a MOODLE, ca un fişier arhivat
+sau prin sistemul CVS de pe pagina de descărcare www.moodle.org. După
+descărcare şi dezarhivare sau verificare prin CVS, pe calculator va
+apărea o mapa moodle. Ea poate fi amplasată în mapa documentelor a
+serverului web. Dacă descărcaţi MOODLE pe calculatorul local şi apoi
+îl plasţi pe server mai optimal este de al plasa ca un fişier arhivat
+şi dezarhivarea să fie făcută în direct pe server. Companie de hosting
+oferă interfaţe de tipul CPanel sau DirectAdmin care au aşa posibilităţi.
+
+
+\section*{Lansarea scriptului de instalare}
+
+Pentru a lansa scriptul de instalare (index.php) e nevoe de culege
+în browser adresa sit-ului sau direct http://serverul/index.php. Scenariu
+de lansare cere să fie salvate cookie. E nevoe să confirmaţi salvarea.
+
+Scenariu nu face alt ceva decît generează fişierul config.php pentru
+server.
+
+Paralel se va verfica şi configurările serverului. De regulă pot apîrea
+probleme cu unile extensiuni PHP.
+
+
+\subsubsection{Configurările serverului Web}
+
+În primul rînd asiguraţi-vă că serverul e configurat pentru a folosi
+implicit pagina index.php (eventual ca compliment la index.html, index.htm,
+default.htm etc.)
+
+În Apache acest lucru se configurează, utilizînd paramentrul \noun{DirectoryIndex
+}în fişierul httpd.conf. 
+
+Exemplu:
+
+\noun{DirectoryIndex index.php index.html, ieendex.htm, defoult.htm}
+
+Asiguraţi-vă ca index.php este în listă şi e de dorit primul (pentru
+efecienţă)
+
+Dacă utilizaţi Apache2 e bine de schimba opţiunea \noun{AcceptPathInfo}
+care face posibilă lucrul scenariilor de transmitere a argumentelor
+\noun{http://server/fişier.php/argument1/argument2.} 
+\end{document}
